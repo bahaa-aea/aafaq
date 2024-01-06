@@ -8,11 +8,11 @@
 <body>
 
 <script>
-  // Get the current URL
-  var currentUrl = window.location.href;
+  // Get the URL of the previous page
+  var referrerUrl = document.referrer;
 
-  // Extract ISBN from the current URL
-  var isbnMatch = currentUrl.match(/books\/(\d+)/);
+  // Extract ISBN from the previous page URL
+  var isbnMatch = referrerUrl.match(/books\/(\d+)/);
   if (isbnMatch && isbnMatch[1]) {
     var isbn = isbnMatch[1];
 
@@ -22,7 +22,7 @@
     // Redirect to the new link
     window.location.href = redirectedLink;
   } else {
-    console.error("ISBN not found in the URL.");
+    console.error("ISBN not found in the previous page URL.");
   }
 </script>
 
